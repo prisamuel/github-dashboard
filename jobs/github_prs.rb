@@ -5,6 +5,8 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
   my_organization = "xxxx"
   interesting_repos = ["mt*", "fe*", "local-dev-environment", "docker*"]
   repos = client.organization_repositories(my_organization).map { |repo| repo.name } .select{|j| interesting_repos.find_index(j)}
+  interesting_repos = ["mt", "fe", "local-dev-environment", "docker"]
+  repos = client.organization_repositories(my_organization).map { |repo| repo.name } .select{|j| interesting_repos.any?{|k|j.start_with?(k)}}
 
   open_pull_requests = repos.inject([]) { |pulls, repo|
     client.pull_requests("#{my_organization}/#{repo}", :state => 'open').each do |pull|
