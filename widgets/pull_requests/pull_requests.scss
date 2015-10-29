@@ -1,24 +1,23 @@
 // ----------------------------------------------------------------------------
 // Sass declarations
 // ----------------------------------------------------------------------------
-$background-color:  gray;
+$background-color:  #000000;
 $value-color:       #fff;
 
 $pass-color:        #8fb347;
 $fail-color:        #ad3b0e;
 $else-color:        #9CB4F4;
 
-$title-color:       rgba(255, 255, 255, 0.7);
+$title-color:       #eb9c3c;
 $label-color:       rgba(255, 255, 255, 0.7);
 $moreinfo-color:    rgba(255, 255, 255, 0.7);
-$ruby:              #e0115f;
 
 // ----------------------------------------------------------------------------
 // Widget-pull-requests styles
 // ----------------------------------------------------------------------------
 .widget-pull-requests {
 
-  background-color: $ruby;
+  background-color: $background-color;
   vertical-align: top;
 
   .header {
@@ -30,8 +29,9 @@ $ruby:              #e0115f;
   }
 
   .title {
-    font-size: 0.8em;
+    font-size: 30px;
     font-weight: 500;
+    color: $title-color;
   }
 
   .pull_info {
@@ -62,7 +62,7 @@ $ruby:              #e0115f;
 
   .value {
     float: right;
-    margin-left: 12px;
+    margin-left: 18px;
     font-weight: 600;
     color: $value-color;
   }
@@ -74,5 +74,12 @@ $ruby:              #e0115f;
   .more-info {
     color: $moreinfo-color;
   }
+
+  .icon.icon-github {
+    font-size: 58px;
+    height: 58px;
+    width: 66px;
+  }
+
 
 }

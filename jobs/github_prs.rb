@@ -3,8 +3,6 @@ require 'octokit'
 SCHEDULER.every '1m', :first_in => 0 do |job|
   client = Octokit::Client.new(:access_token => "xxx")
   my_organization = "xxxx"
-  interesting_repos = ["mt*", "fe*", "local-dev-environment", "docker*"]
-  repos = client.organization_repositories(my_organization).map { |repo| repo.name } .select{|j| interesting_repos.find_index(j)}
   interesting_repos = ["mt", "fe", "local-dev-environment", "docker"]
   repos = client.organization_repositories(my_organization).map { |repo| repo.name } .select{|j| interesting_repos.any?{|k|j.start_with?(k)}}
 
